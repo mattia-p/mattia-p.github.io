@@ -51,10 +51,9 @@ As part of this project I will be focusing only on three channels out of six of 
 ![Image 3: Printed Circuit Board](../assets/post_3/pcb.jpg){:style="width: 300px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Image 3: Printed Circuit Board</p>
 
-The goal of the Vehicle Control Interface is to process the three incoming PWM (Pulse Width Modulation) signals and extract the control information they carry. A PWM signal is a digital signal that alternates between HIGH and LOW voltage states. While the frequency remains constant, the duration of the HIGH state—known as the pulse width—varies. This variation encodes the transmitted signal, which in our case corresponds to steering, throttle, or an engagement request.
-
-
 ## Understanding PWM and Interrupts
+
+The goal of the Vehicle Control Interface is to process the three incoming PWM (Pulse Width Modulation) signals and extract the control information they carry. A PWM signal is a digital signal that alternates between HIGH and LOW voltage states. While the frequency remains constant, the duration of the HIGH state—known as the pulse width—varies. This variation encodes the transmitted signal, which in our case corresponds to steering, throttle, or an engagement request.
 
 To accurately measure PWM signals, we use interrupt pins, which allow the microcontroller to respond immediately when a signal changes state. Instead of constantly checking the pin’s value in a loop, interrupts trigger an Interrupt Service Routine (ISR) - a special function that runs as soon as a rising or falling edge is detected. This enables precise timing measurements of the PWM signal’s HIGH and LOW durations, which is essential for decoding the information carried by the signal. 
 
