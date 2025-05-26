@@ -17,7 +17,7 @@ layout: post
 
 ## Introduction
 
-In a previous post, I described how I built a C++ I2C driver for the **BME280** sensor (temperature, pressure, humidity). That driver was then used to record and store temperature data regularly and was being published on a flask web app for visualization. What I didn’t describe in detail is what the hardware setup looked like. 
+In a previous post, I described how I built a C++ I2C driver for the **BME280** sensor (temperature, pressure, humidity). That driver was then used to record and store temperature data regularly and was being published on a flask web app for visualization. What I didn't describe in detail is what the hardware setup looked like. 
 I was running all the software on a Raspberry Pi 4. The sensor was installed on a breadboard and connected to the Raspberry Pi with 4 jumper wires (4 wires because of I2C) and the Raspberry Pi itself was connected to my laptop with an ethernet RJ45 cable. 
 
 
@@ -26,7 +26,7 @@ That solution was not optimal for many reasons, including:
 - The raspberry pi 4 is probably overkill that such a small application
 - The raspberry pi (and hence the sensor) has to be physically close to my laptop
 
-I’ve decided to miniaturize the whole setup and I am documenting the whole process in this blog post. 
+I've decided to miniaturize the whole setup and I am documenting the whole process in this blog post. 
 
 Some of the goals I would like to achieve are:
 - Miniaturize the hardware, to make it less expensive and so we can position the sensor in more places
@@ -37,22 +37,22 @@ Some of the goals I would like to achieve are:
 ## Another platform, another OS
 
 The first modification I started working on is the change of computing platform. I decided to go with a Raspberry Pi Zero 2W instead of the Raspberry Pi 4, because:
-- It’s a lot less expensive (~$15)
-- It’s a more appropriate platform for the low-power sensor and small software we are running
-- It can still run Ubuntu, so porting the software shouldn’t be too hard
+- It's a lot less expensive (~$15)
+- It's a more appropriate platform for the low-power sensor and small software we are running
+- It can still run Ubuntu, so porting the software shouldn't be too hard
 - It has wifi embedded, so we can remotely ssh into it, without needing additional cables
 - It has GPIO pins, including I2C pins, so the connections should be the same as with the Pi 4
 
 
-![Breakout board](../assets/post_2/pi_zero.png){:style="width: 400px; height: auto; display: block; margin: 0 auto;"}
+![Breakout board](/assets/post_2/pi_zero.png){:style="width: 400px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Raspberry Pi Zero 2W</p>
 
 
 Here are some of the steps I followed to start using the Pi Zero:
 
-I’ve used Raspberry Pi Imager to create a bootable SD card with Ubuntu Server. The software already has a variety of OS to choose from, and is easy to use. Don’t forget to configure your network setting if you are planning remotely ssh-ing into it, and never use a screen. 
+I've used Raspberry Pi Imager to create a bootable SD card with Ubuntu Server. The software already has a variety of OS to choose from, and is easy to use. Don't forget to configure your network setting if you are planning remotely ssh-ing into it, and never use a screen. 
 
-![Breakout board](../assets/post_2/imager.png){:style="width: 600px; height: auto; display: block; margin: 0 auto;"}
+![Breakout board](/assets/post_2/imager.png){:style="width: 600px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Raspberry Pi Imager</p>
 
 
@@ -69,17 +69,17 @@ Make sure you have the latest package lists and installs available updates:
 
 And you should be good to go. The pi should be ready to install the software next.
 
-![Breakout board](../assets/post_2/ubuntu.png){:style="width: 800px; height: auto; display: block; margin: 0 auto;"}
+![Breakout board](/assets/post_2/ubuntu.png){:style="width: 800px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Ubuntu server 24.04</p>
 
 
 ## Migrating the codebase from the Pi4 to the Pi Zero
 
-In this paragraph I’ll be documenting how I migrated [the codebase](https://github.com/mattia-p/bme280_i2c_driver) from the Pi 4 to the Pi Zero.
+In this paragraph I'll be documenting how I migrated [the codebase](https://github.com/mattia-p/bme280_i2c_driver) from the Pi 4 to the Pi Zero.
 In theory not much is needed since the app runs on a Docker container, so the only two packages that need to be installed locally are Docker and git. 
 
 
-Once this is done, I’m able to clone my repo and start the container:
+Once this is done, I'm able to clone my repo and start the container:
 
 ```bash
 docker compose up -d
@@ -142,17 +142,17 @@ And it works fine now!
 
 ## No more jumper wires
 
-Next step is to get rid of the jumper wires and the breadboard. It might be overkill for such a small sensor and use case, but I’ve decided to make a custom PCB shield to securely mount and connect the sensor. Designing the PCB was pretty straightforward using EasyEda.
+Next step is to get rid of the jumper wires and the breadboard. It might be overkill for such a small sensor and use case, but I've decided to make a custom PCB shield to securely mount and connect the sensor. Designing the PCB was pretty straightforward using EasyEda.
 
-![PCB](../assets/post_2/pcb.png){:style="width: 800px; height: auto; display: block; margin: 0 auto;"}
+![PCB](/assets/post_2/pcb.png){:style="width: 800px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">PCB</p>
 
 A couple of minutes of soldering and this is what I was left with:
 
-![Circuit](../assets/post_2/circuit.jpg){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
+![Circuit](/assets/post_2/circuit.jpg){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Pi zero with custom BME280 shield</p>
 
 ## All together
 
-![Architecture diagram](../assets/post_2/arch_diagram.png){:style="width: 700px; height: auto; display: block; margin: 0 auto;"}
+![Architecture diagram](/assets/post_2/arch_diagram.png){:style="width: 700px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Architecture diagram</p>
