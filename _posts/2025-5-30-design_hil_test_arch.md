@@ -1,6 +1,8 @@
 ---
 title: Designing a Hardware In the Loop test architecture
+excerpt: Or how to convince your robot it’s not in your living room 
 date: 2025-5-30
+tags: [HIL testing, Pytest, Simulation]
 layout: post
 ---
 
@@ -119,7 +121,7 @@ The only component excluded is GPS data acquisition, since there's no real senso
 The vehicle simulation replaces both the vehicle’s physical dynamics and its GPS sensor input. It receives actuator commands—throttle, steering, and brake—via the DAQ, which reads PWM signals from the VCI and forwards them to the tester PC.
 Using a basic vehicle model, the simulation computes the vehicle's updated state (e.g., position, velocity) and feeds that information back into the autonomy software. This closes the loop and enables a realistic control-feedback cycle, without needing to move an actual vehicle.
 
-##Next steps
+## Next steps
 
 This post has focused on the early design and architecture phase of the HIL system. The next major milestone is building the full setup—both hardware and software. That includes designing and assembling the custom PCB, wiring all components, and implementing the remaining code for orchestration and simulation.
 Future posts will document this process and share lessons learned, along with initial test results from the completed platform.
