@@ -27,7 +27,10 @@ I've been working on building an autonomous RC race car for some time now. Built
 
 A high level diagram of the vehicle architecture can be found below:
 
-![Image 1: Autonomous RC car high level diagram](../assets/post_4/system_arch.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
+<a href="/assets/post_4/system_arch.png" target="_blank">
+  <img src="/assets/post_4/system_arch.png" alt="Image 1: Autonomous RC car high level diagram"
+       style="width: 600px; height: auto; display: block; margin: 0 auto;" />
+</a>
 <p style="text-align: center; font-size: 0.9em; color: #555;">Image 1: Autonomous RC car high level diagram</p>
 
 The **Central Control Unit** is responsible for running the autonomy stack, including localization, planning, and control. The **Vehicle Control Interface**, on the other hand, translates high-level commands from the Central Control Unit into low-level actuator commands (powertrain, steering, handbrake). It also handles mode switching between autonomous and manual control by listening to the RC receiver and monitoring the engagement channel for mode-change commands.
@@ -47,7 +50,10 @@ The primary goal of this new HIL setup is to build a test bench that can replica
 
 With this goal in mind, the following high-level architecture was designed to meet the functional and testing requirements of the HIL setup.
 
-![Image 2: HIL high level architecture](../assets/post_4/post3_hil_arch.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
+<a href="/assets/post_4/post3_hil_arch.png" target="_blank">
+  <img src="/assets/post_4/post3_hil_arch.png" alt="Image 2: HIL high level architecture"
+       style="width: 700px; height: auto; display: block; margin: 0 auto;" />
+</a>
 <p style="text-align: center; font-size: 0.9em; color: #555;">Image 2: HIL high level architecture</p>
 
 Let’s now dive deeper into each component of the architecture to understand its role and how it interacts with the rest of the system.
@@ -88,7 +94,10 @@ These limitations don't prevent valuable testing, but they do highlight the impo
 With the high-level hardware architecture in place, it's time to dive into the software system that ties everything together. The following diagram outlines how the autonomy software, vehicle simulation, DAQ, and Vehicle Control Interface (VCI) interact under the supervision of a centralized test infrastructure.
 
 
-![Image 3: HIL software overview](../assets/post_4/hil_sw_arch.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
+<a href="/assets/post_4/hil_sw_arch.png" target="_blank">
+  <img src="/assets/post_4/hil_sw_arch.png" alt="Image 3: HIL software overview"
+       style="width: 900px; height: auto; display: block; margin: 0 auto;" />
+</a>
 <p style="text-align: center; font-size: 0.9em; color: #555;">Image 3: HIL software overview</p>
 
 Each component plays a specific role in enabling Hardware-in-the-Loop (HIL) testing. Let’s take a closer look at how they work together:
