@@ -12,7 +12,6 @@ collections:
 
 url: https://mattia-p.github.io
 
-# Add this section 👇
 just_the_docs:
   custom_css:
     - "/assets/css/custom.css"  # GitHub compiles .scss to .css
