@@ -6,8 +6,11 @@ collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:day/:title/
+  projects:
+    output: true
+    permalink: /projects/:title/
 
-url: https://mattia-p.github.io  # ✅ Fixed your GitHub Pages URL
+url: https://mattia-p.github.io
 
 # Add this section 👇
 just_the_docs:
