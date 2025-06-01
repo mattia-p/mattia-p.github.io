@@ -1,6 +1,8 @@
 ---
 title: From breadboard chaos to Raspberry Pi zero elegance - Downsizing and solidifying our IoT solution
+excerpt: "Or how to architect a ligthweight, containerized sensor pipeline"
 date: 2025-1-23
+tags: [Docker, Raspberry Pi, Flask, IPC, C++, Python]
 layout: post
 ---
 

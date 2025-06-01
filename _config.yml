@@ -6,8 +6,18 @@ collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:day/:title/
+  projects:
+    output: true
+    permalink: /projects/:title/
 
-url: https://mattia-p/mattia-p.github.io
+url: https://mattia-p.github.io
+
+just_the_docs:
+  custom_css:
+    - "/assets/css/custom.css"  # GitHub compiles .scss to .css
+
+sass:
+  style: compressed  # Optional: makes CSS smaller
 
 aux_links:
   GitHub:

@@ -1,6 +1,8 @@
 ---
 title: Decoding PWM signals from a 3-channel radio receiver
+excerpt: Or how to hijack a remote control car with a microcontroller
 date: 2025-5-25
+tags: [PWM, C++, Interrupt, Embedded, PCB]
 layout: post
 ---
 

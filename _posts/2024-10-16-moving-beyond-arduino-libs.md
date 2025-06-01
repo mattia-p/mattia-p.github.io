@@ -1,6 +1,8 @@
 ---
 title: Moving beyond the pre-made arduino sensor libraries
+excerpt: "Or how to demystify I2C communication by writing a sensor driver from scratch"
 date: 2024-10-17
+tags: [I2C, C++, Register, Raspberry Pi, Docker]
 layout: post
 ---
 
@@ -49,14 +51,14 @@ The BME280 is a temperature, humidity and pressure sensor developed by Bosch. Th
 For communication, the sensor provides a SPI and an I2C interface. I will be using the I2C interface throughout this article. 
 
 
-![Breakout board](/assets/annotated_breakout_board.jpg){:style="width: 300px; height: auto; display: block; margin: 0 auto;"}
+![Breakout board](/assets/post_1/annotated_breakout_board.jpg){:style="width: 300px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">Sparkfun BME280 breakout board</p>
 
 Most of the information that we need to interact with the sensor is provided in [the Bosch datasheet](https://cdn.sparkfun.com/assets/learn_tutorials/4/1/9/BST-BME280_DS001-10.pdf). 
 
 Here's a simplified diagram of the internal architecture found in the datasheet.
 
-![BME280 block diagram](/assets/bme280_block.png){:style="width: 400px; height: auto; display: block; margin: 0 auto;"}
+![BME280 block diagram](/assets/post_1/bme280_block.png){:style="width: 400px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">BME280 block diagram</p>
 
 
@@ -126,7 +128,7 @@ bool BME280::begin(){
 After the above is done, we are left to read the sensor values. Here, as an example, we will just look at the temperature reading. 
 This is a two steps process: The first step consists in reading the raw temperature value, and the second in compensating the raw temperature using a compensation formula given in the datasheet. The compensation formula is supposed to correct for known raw data discrepencies, caused by the manufacturing process, environmental conditions, or the aging of the sensor.
 
-![Temperature reading flow](/assets/read_temp_diagram.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
+![Temperature reading flow](/assets/post_1/read_temp_diagram.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">BME280 temperature reading flow</p>
 
 
@@ -162,7 +164,7 @@ uint32_t BME280::read20(uint8_t reg){
 ```
 
 
-![BME280 temp data registers layout](/assets/temperature_registers_layout.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
+![BME280 temp data registers layout](/assets/post_1/temperature_registers_layout.png){:style="width: 500px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">BME280 temperature data registers layout</p>
 
 
@@ -175,7 +177,7 @@ After getting the raw temperature, we apply the compensation formulas obtained f
 
 The record and save the temperature throughout time, I have implemented the following architecture.
 
-![Software architecture](/assets/architecture.png){:style="width: 650px; height: auto; display: block; margin: 0 auto;"}
+![Software architecture](/assets/post_1/architecture.png){:style="width: 650px; height: auto; display: block; margin: 0 auto;"}
 <p style="text-align: center; font-size: 0.9em; color: #555;">BME280 integration architecture</p>
 
 The c++ binary `i2c_cpp_driver` repeats the same actions every second. It reads the temperature from the BME280 and then publishes it through a pipe for `main.py` to be able to read it through inter process communication. The python file then saves it to a local SQLite database. The database is also continuously read by the flask app that plots the temperature values into a local web browser.
