@@ -1,0 +1,13 @@
+// Test style - this should make the background red if it works
+body {
+    background-color: red !important;
+}
+
+// Projects page styling
+.projects-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: -2rem -2rem 3rem -2rem;
+    border-radius: 0 0 20px 20px;
+}
