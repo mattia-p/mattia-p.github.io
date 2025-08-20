@@ -3,6 +3,7 @@ title: Autonomous RC car racing in Laguna Seca
 image: /assets/images_projects/rc_car_v1_mv.jpg
 description: Retrofitting an RC car into a self-driving racing vehicle
 order: 3
+tech_stack: ["Python", "ROS"]
 layout: page
 ---
 
