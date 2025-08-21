@@ -5,8 +5,7 @@ permalink: /projects/
 nav_order: 3
 ---
 
-<div class="projects-hero">
-  <h1>Projects</h1>
+<div class="articles-hero">
   <p>A collection of projects exploring robotics, autonomous systems, and programming in general.</p>
 </div>
 
