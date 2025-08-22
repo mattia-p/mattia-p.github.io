@@ -1,8 +1,9 @@
 ---
 title: Designing a Hardware In the Loop test architecture
-excerpt: Or how to convince your robot it’s not in your living room 
+description: Or how to convince your robot it’s not in your living room 
 date: 2025-5-30
-tags: [HIL testing, Pytest, Simulation]
+image: /assets/post_4/post3_hil_arch.png
+tech_stack: [HIL testing, Pytest, Simulation]
 layout: post
 ---
 

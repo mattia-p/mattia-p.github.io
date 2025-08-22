@@ -5,28 +5,30 @@ permalink: /projects/
 nav_order: 3
 ---
 
-## Projects
-<!-- 
-{% for project in site.projects %}
-  <div class="post-preview">
-    <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-    <p>{{ project.description }}</p>
-    {% if project.image %}
-      <img src="{{ project.image }}" alt="{{ project.title }}" style="max-width: 40%; height: auto; margin: 1em 0;">
-    {% endif %}
-  </div>
-  <hr>
-{% endfor %} -->
+<div class="articles-hero">
+  <p>A collection of projects exploring robotics, autonomous systems, and programming in general.</p>
+</div>
 
-{% assign sorted_projects = site.projects | sort: "order" %}
-
-{% for project in sorted_projects %}
-  <div class="post-preview">
-    <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-    <p>{{ project.description }}</p>
-    {% if project.image %}
-      <img src="{{ project.image }}" alt="{{ project.title }}" style="max-width: 40%; height: auto; margin: 1em 0;">
-    {% endif %}
-  </div>
-  <hr>
-{% endfor %}
+<div class="projects-grid">
+  {% for project in site.projects %}
+    <div class="project-card">
+      {% if project.image %}
+        <div class="project-image">
+          <img src="{{ project.image }}" alt="{{ project.title }}">
+        </div>
+      {% endif %}
+      <div class="project-content">
+        <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+        <p>{{ project.description }}</p>
+        {% if project.tech_stack %}
+          <div class="tech-stack">
+            {% for tech in project.tech_stack %}
+              <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <a href="{{ project.url }}" class="project-link">View Project →</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>

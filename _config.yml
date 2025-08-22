@@ -12,12 +12,7 @@ collections:
 
 url: https://mattia-p.github.io
 
-just_the_docs:
-  custom_css:
-    - "/assets/css/custom.css"  # GitHub compiles .scss to .css
-
-sass:
-  style: compressed  # Optional: makes CSS smaller
+google_analytics: G-192BDE6BDR
 
 aux_links:
   GitHub:

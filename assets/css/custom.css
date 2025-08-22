@@ -1,3 +1,5 @@
+
+
 body .post-preview {
     margin-bottom: 1.5em;
     padding: 0.8em;
@@ -93,3 +95,7 @@ body .post-tags .tag:hover {
     margin: 0.5em 0 0;
     color: #555;
 }
+
+body {
+    background-color: yellow !important;
+  }

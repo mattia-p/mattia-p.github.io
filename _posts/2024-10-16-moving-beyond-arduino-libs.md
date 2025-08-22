@@ -1,8 +1,9 @@
 ---
 title: Moving beyond the pre-made arduino sensor libraries
-excerpt: "Or how to demystify I2C communication by writing a sensor driver from scratch"
+description: "Or how to demystify I2C communication by writing a sensor driver from scratch"
 date: 2024-10-17
-tags: [I2C, C++, Register, Raspberry Pi, Docker]
+image: /assets/post_1/bme280_block.png 
+tech_stack: [I2C, C++, Register, Raspberry Pi, Docker]
 layout: post
 ---
 

@@ -3,6 +3,7 @@ title:  Tetris CLI
 image: /assets/images_projects/tetris.png
 description: Classic Tetris meets the command line
 order: 1
+tech_stack: ["C++", "Python", "Ncurses"]
 layout: page
 ---
 
