@@ -231,3 +231,58 @@
         height: 160px;  // Taller on mobile
     }
 }
+
+// About section styling
+.about-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
+
+.about-content {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.about-text p {
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column-reverse;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
