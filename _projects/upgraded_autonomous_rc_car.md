@@ -2,7 +2,7 @@
 title: Second generation autonomous RC car
 image: /assets/images_projects/platform_v2.jpg
 description: A second-generation vehicle with hardware and software improvements over the original prototype.
-order: 1
+order: 5
 tech_stack: ["Python", "C++", "HW Integration"]
 layout: page
 ---
