@@ -2,8 +2,8 @@
 title:  Tetris CLI
 image: /assets/images_projects/tetris.png
 description: Classic Tetris meets the command line
-order: 1
-tech_stack: ["C++", "Python", "Ncurses"]
+order: 4
+tech_stack: ["C++", "Docker", "Ncurses", "CMake"]
 layout: page
 ---
 
